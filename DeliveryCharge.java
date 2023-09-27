@@ -5,11 +5,6 @@ class DeliveryCharge {
     final int amount;
 
     DeliveryCharge(final ShoppingCart shoppingCart) {
-        if (shoppingCart.totalPrice() < CHARGE_FREE_THERESHOLD) {
-            amount = PAY_CHARGE;
-        }
-        else {
-            amount = CHARGE_FREE;
-        }
+        amount = (shoppingCart.totalPrice() < CHARGE_FREE_THERESHOLD) ? PAY_CHARGE : CHARGE_FREE;
     }
 }
