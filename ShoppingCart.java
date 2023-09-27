@@ -17,4 +17,14 @@ public class ShoppingCart {
         adding.add(product);
         return new ShoppingCart(adding);
     }
+
+    /**
+     * @return 商品の合計金額
+     */
+    int totalPrice() {
+        int amount = 0;
+        for (Product each : products) {
+            amount += each.price;
+        }
+    }
 }
