@@ -31,5 +31,6 @@ public class ShoppingCart {
         for (Product each : products) {
             amount += each.price;
         }
+        return amount;
     }
 }
