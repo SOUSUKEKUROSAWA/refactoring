@@ -2,6 +2,11 @@ class DeliveryCharge {
     final int amount;
 
     DeliveryCharge(final ShoppingCart shoppingCart) {
-        amount = DeliveryMangager.deliveryCharge(shoppingCart);
+        if (shoppingCart.totalPrice() < 2000) {
+            amount = 500;
+        }
+        else {
+            amount = 0;
+        }
     }
 }
