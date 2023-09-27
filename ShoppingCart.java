@@ -12,6 +12,11 @@ public class ShoppingCart {
         this.products = products;
     }
 
+    /**
+     * 買い物かごに商品を追加する
+     * @param product 商品
+     * @return 商品が追加された買い物かご
+     */
     ShoppingCart add(final Product product) {
         final List<Product> products = new ArrayList<>(products);
         adding.add(product);
