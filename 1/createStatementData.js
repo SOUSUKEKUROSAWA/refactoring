@@ -7,6 +7,7 @@ export default function createStatementData(invoice, plays) {
     return statementData;
 
     function enrichPerformance(aPerformance) {
+        const calculator = new PerformanceCalculator(aPerformance);
         // 引数で渡された aPerformance を不変に保つためにコピーを作成
         const result = Object.assign({}, aPerformance);
         result.play = playFor(result);
@@ -54,5 +55,11 @@ export default function createStatementData(invoice, plays) {
 
     function totalVolumeCredits(data) {
         return data.performances.reduce((total, p) => total + p.volumeCredits, 0);
+    }
+}
+
+class PerformanceCalculator {
+    constructor(aPerformance) {
+        this.performance = aPerformance;
     }
 }
