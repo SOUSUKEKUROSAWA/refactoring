@@ -11,17 +11,13 @@ export default function createStatementData(invoice, plays) {
         // 引数で渡された aPerformance を不変に保つためにコピーを作成
         const result = Object.assign({}, aPerformance);
         result.play = calculator.play;
-        result.amount = amountFor(result);
+        result.amount = calculator.amout;
         result.volumeCredits = volumeCreditsFor(result);
         return result;
     }
 
     function playFor(aPerformance) {
         return plays[aPerformance.playID];
-    }
-
-    function amountFor(aPerformance) {
-        return new PerformanceCalculator(aPerformance, playFor(aPerformance)).amount;
     }
 
     function volumeCreditsFor(aPerformance) {
