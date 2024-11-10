@@ -1,7 +1,7 @@
 function statement (invoice, plays) {
     let result = `Statement for ${invoice.customer}\n`;
 
-    for (let perf of invoice.performances) {    
+    for (let perf of invoice.performances) {
         result += `  ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
     }
 
@@ -48,22 +48,22 @@ function statement (invoice, plays) {
             {
                 style: "currency",
                 currency: "USD",
-                minimumFractionDigits: 2
+                minimumFractionDigits: 2 
             }
         ).format(aNumber/100);
     }
 
     function totalVolumeCredits() {
-        let volumeCredits = 0;
+        let result = 0;
         for (let perf of invoice.performances) {
-            volumeCredits += volumeCreditsFor(perf);
+            result += volumeCreditsFor(perf);
         }
-        return volumeCredits;
+        return result;
     }
 
     function totalAmount() {
         let result = 0;
-        for (let perf of invoice.performances) {    
+        for (let perf of invoice.performances) {
             result += amountFor(perf);
         }
         return result;
